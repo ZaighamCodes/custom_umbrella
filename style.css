@@ -144,7 +144,7 @@
     .buttons {
       width: 100%;
       height: calc(var(--unit) * 4);
-      margin-top: var(--unit);
+      margin-top: calc(var(--unit) * 2);
       background-color: var(--blue);
       display: flex;
       cursor: pointer;
@@ -161,7 +161,6 @@
           justify-content: center;
           filter: invert(1);
           position: relative;
-          /* display: none; */
 
           .loader-sec
           {

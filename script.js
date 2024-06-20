@@ -56,7 +56,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
     const cancelButton = document.getElementById('cancelButton');
     const buttonLoader = document.getElementById('buttonLoader');
     const logo = document.getElementById('logo');
-    const fileNameDisplay = document.getElementById('fileNameDisplay'); // Add this line
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
 
     if (file && (file.type === 'image/png' || file.type === 'image/jpeg') && file.size <= 5 * 1024 * 1024) {
         const reader = new FileReader();

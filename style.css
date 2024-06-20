@@ -1,0 +1,208 @@
+:root {
+  --blue: #29b1e4;
+  --yellow: #ffd146;
+  --yellow-light: #f3d782;
+  --pink: #d0006f;
+  --blue-light: #63c0e2;
+  --blue-super-light: #daf1fa;
+  --yellow-super-light: #faf3e0;
+  --pink-super-light: #fae1ee;
+  --pink-light: #ec4da2;
+  --unit: 10px;
+  /* using variables instead of fixed value to make it dynamic and maintain the proportions */
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*,
+/* used poppins font as it closely resembled to the font used in demo video which was not mentioned in the documentation */
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.parent {
+  width: 100%;
+  height: 100svh;
+  background: var(--blue-super-light);
+  .image-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .image {
+      width: 80%;
+      background: url("./Blueumbrella.png");
+      aspect-ratio: 1 / 1;
+      background-size: contain !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      .logo {
+        position: absolute;
+        height: calc(var(--unit) * 4);
+        width: calc(var(--unit) * 15);
+        z-index: 100;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    .loader {
+      position: absolute;
+      aspect-ratio: 1;
+      width: calc(var(--unit) * 10);
+      background: url("./loader_icon.svg");
+      z-index: 100;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      animation: spin 1.5s ease-out infinite;
+      display: none;
+    }
+  }
+
+  .controls-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .controls {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+    .colors-box {
+      display: flex;
+      gap: calc(var(--unit) * 2);
+      justify-content: flex-start;
+      margin: 30px 0px;
+      .color {
+        height: calc(var(--unit) * 2);
+        aspect-ratio: 1;
+        border-radius: 100%;
+        cursor: pointer;
+
+        &:nth-child(1) {
+          background-color: var(--pink);
+          border: 3px solid var(--pink);
+          &.active {
+            border: 3px solid var(--pink-light) !important;
+          }
+        }
+        &:nth-child(2) {
+          background-color: var(--blue);
+          border: 3px solid var(--blue);
+          &.active {
+            border: 3px solid var(--blue-light) !important;
+          }
+        }
+        &:nth-child(3) {
+          background-color: var(--yellow);
+          border: 3px solid var(--yellow);
+          &.active {
+            border: 3px solid var(--yellow-light) !important;
+          }
+        }
+      }
+    }
+    p {
+      font-size: 14px;
+    }
+    span {
+      font-size: 12px;
+      margin-top: var(--unit);
+      opacity: 0.8;
+    }
+
+    .buttons {
+      width: 100%;
+      height: calc(var(--unit) * 4);
+      margin-top: var(--unit);
+      background-color: var(--blue);
+      display: flex;
+      cursor: pointer;
+      .upload {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .icon {
+          height: 100%;
+          aspect-ratio: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          filter: invert(1);
+        }
+        .file {
+          width: calc(100% - var(--unit) * 8);
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+      }
+      .cancel-parent {
+        height: 100%;
+        aspect-ratio: 1;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center;
+        color: white;
+      
+        .cancel {
+          font-size: 2 rem;
+          display: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(340deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+#fileInput {
+  display: none;
+}

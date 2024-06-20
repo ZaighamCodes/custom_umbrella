@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="parent" id="bg">
+
+        <div class="container">
+            <div class="image-box">
+
+                <div class="image" id="umbrella-image">
+                    
+                    <div class="logo" id="logo"></div>
+                </div>
+                
+                <div class="loader"></div>
+                <!-- have used background image instead of img tag as it makes it easy to control via css -->
+            </div>
+
+            <div class="controls-box">
+                <div class="controls">
+                    <h1>Custom Umbrella</h1>
+                    <div class="colors-box">
+                        <div class="color" id="pink" onclick="pink()"></div>
+                        <div class="color active" id="blue" onclick="blue()"></div>
+                        <div class="color" id="yellow" onclick="yellow()"></div>
+                    </div>
+                    <h2>Customize your umbrella</h2>
+                    <p>Upload a logo for an instant preview.</p>
+                    <span>.png and .jpg files only Max file size is 5MB.</span>
+
+                    <div class="buttons" id="buttons">
+                        <input type="file" id="fileInput" >
+                        <div class="upload" onclick="document.getElementById('fileInput').click();">
+                            
+                            <div class="icon">
+                                <div class="loader"></div>
+                                <object data="./upload_icon.svg"> </object>
+                            </div>
+                            <div class="file" id="fileNameDisplay">Upload LOGO</div>
+                        </div>
+                        <div class="cancel-parent">
+                            <div class="cancel" onclick="removeLogo()" id="cancelButton">
+                                X
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

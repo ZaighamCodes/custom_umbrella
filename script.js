@@ -12,6 +12,9 @@ function changeUmbrellaColor(elementId, buttonId, loaderId, imageUrl, buttonBack
     const element = document.getElementById(elementId);
     const button = document.getElementById(buttonId);
     const loader = document.getElementById(loaderId);
+    document.getElementById('upload_icon').style.display="none";
+    document.getElementById('loader-sec').style.display="block";
+
     element.style.opacity = "0%";
     button.style.backgroundColor = buttonBackground;
     bg.style.backgroundColor = backgroundColor;
@@ -20,6 +23,8 @@ function changeUmbrellaColor(elementId, buttonId, loaderId, imageUrl, buttonBack
         element.style.backgroundImage = `url('${imageUrl}')`;
         hideLoader(loader);
         element.style.opacity = "100%";
+        document.getElementById('upload_icon').style.display="block";
+        document.getElementById('loader-sec').style.display="none";
     }, 2500);
 }
 

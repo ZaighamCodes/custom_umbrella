@@ -160,6 +160,25 @@
           align-items: center;
           justify-content: center;
           filter: invert(1);
+          position: relative;
+          /* display: none; */
+
+          .loader-sec
+          {
+            position: absolute;
+            aspect-ratio: 1;
+            width: calc(var(--unit) * 3);
+            background: url("./loader_icon.svg");
+            z-index: 100;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            animation: spin 1.5s ease-out infinite;
+            display: none;
+          }
         }
         .file {
           width: calc(100% - var(--unit) * 8);
